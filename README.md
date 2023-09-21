@@ -23,40 +23,57 @@
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Description
+This is a login authentication project with routes for user creation, token refresh, and a protected route with JWT (JSON Web Tokens) guard that fetches users from the database. The API is built using Nest.js and TypeScript and utilizes the class-validator library for request body validation. In addition, the project employs bcrypt for password protection. The project is structured into three modules: user, auth, and within the auth module, there is a guards layer that handles both access tokens and refresh tokens.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
+## How to run the app
+1. Create an .env file that has:
+* DATABASE_URL for dev.db location for prisma
+* jwtSecretKey for tokens
+* jwtRefreshTokenKey for refresh tokens
+
+2. Run the application:
 
 ```bash
 $ npm install
-```
 
-## Running the app
-
-```bash
-# development
 $ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
 ```
 
-## Test
+## Routes
+This app runs on port 8000.
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+POST - `/auth/register`
 ```
+{
+	"name": "user",
+	"email": "user@gmail.com",
+	"password": "pass"
+}
+```
+POST - `/auth/login`
+```
+{
+{
+	"username": "user@gmail.com",
+	"password": "pass"
+}
+}
+```
+It should return the tokens for access and refresh.
+
+POST - `/auth/refresh`
+This is the route to refresh your tokens. You should pass your Refresh Token in the Authorization header:
+  <div class="center-image">
+    <img src="https://github.com/normyee/nestjs-authentication-jwt/assets/63208510/3b3f448f-bf71-48e3-afe3-01f44d5f7ace" alt="Image">
+  </div>
+  It should return an Access Token refreshed and a new Refresh Token.<br></br>
+
+GET - `/user/:id` *THIS ROUTE IS PROTECTED BY JWT GUARD*</br>
+This is the GET route for this app. You should provide the user's ID to retrieve information. However, to access this route, you must include the bearer token since it is protected by the JWT guard:
+  <div class="center-image">
+    <img src="https://github.com/normyee/nestjs-authentication-jwt/assets/63208510/5a11ca0f-9334-4cd3-a10c-5c3c662c6202" alt="Image">
+  </div>
 
 ## Support
 
