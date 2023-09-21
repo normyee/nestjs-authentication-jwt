@@ -23,7 +23,7 @@
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Description
-This is a login authentication project with routes for user creation, token refresh, and a protected route with JWT (JSON Web Tokens) guard that fetches users from the database. The API is built using Nest.js and TypeScript and utilizes the class-validator library for request body validation. In addition, the project employs bcrypt for password protection. The project is structured into three modules: user, auth, and within the auth module, there is a guards layer that handles both access tokens and refresh tokens.
+This is a login authentication project with routes for user creation, token refresh, and a protected route with JWT (JSON Web Tokens) guard that fetches users from the database. The API is built using Nest.js and TypeScript and utilizes the class-validator library for request body validation. In addition, the project employs bcrypt for password protection. The project is structured into two modules: user, auth, and within the auth module, there is a guards layer that handles both access tokens and refresh tokens.
 
 
 ## How to run the app
