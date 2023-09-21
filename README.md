@@ -54,10 +54,8 @@ POST - `/auth/register`
 POST - `/auth/login`
 ```
 {
-{
 	"username": "user@gmail.com",
 	"password": "pass"
-}
 }
 ```
 It should return the tokens for access and refresh.
